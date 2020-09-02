@@ -1,6 +1,6 @@
 package it.polito.tdp.imdb.model;
 
-public class Actor{
+public class Actor implements Comparable<Actor>{
 	Integer id;
 	String firstName;
 	String lastName;
@@ -43,7 +43,7 @@ public class Actor{
 	public String toString() {
 		return lastName + ", " + firstName + " (" + id + ")";
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -67,6 +67,11 @@ public class Actor{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Actor o) {
+		return this.toString().compareTo(o.toString());
 	}
 
 	
